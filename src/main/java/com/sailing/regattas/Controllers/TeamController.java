@@ -32,6 +32,12 @@ public class TeamController {
         return new ResponseEntity<>(team, HttpStatus.OK);
     }
 
+    @GetMapping("/regatte/{id}")
+    public ResponseEntity<List<Team>> getTeamByRegatteId(@PathVariable("id") Long id) {
+        List<Team> teams = teamsService.findTeamsByRegattaId(id);
+        return new ResponseEntity<>(teams, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Team> addTeam(@RequestBody Team team) {
         Team newTeam = teamsService.createTeam(team);

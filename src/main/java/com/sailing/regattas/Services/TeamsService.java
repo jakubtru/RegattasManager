@@ -39,6 +39,10 @@ public class TeamsService {
         return teamsRepository.findById(id).orElseThrow(() -> new RuntimeException("Team with id " + id + " was not found"));
     }
 
+    public List<Team> findTeamsByRegattaId(Long regatteId) {
+        return teamsRepository.findByRegattaId(regatteId);
+    }
+
     public void deleteTeam(Long id) {
         teamsRepository.deleteById(id);
     }
