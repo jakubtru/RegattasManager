@@ -3,6 +3,9 @@ package com.sailing.regattas.Entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 public class Team {
@@ -22,4 +25,13 @@ public class Team {
     private Integer licenseNumber;
     private String sailClub;
     private String birthdate;
+    @ElementCollection
+    @CollectionTable(name = "crew_members", joinColumns = @JoinColumn(name = "team_id"))
+    @Column(name = "crew_members")
+    private List<String> crewMembers = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "points", joinColumns = @JoinColumn(name = "team_id"))
+    @Column(name = "points")
+    private List<Double> points = new ArrayList<>();
 }
