@@ -12,6 +12,7 @@ import java.util.List;
 public class UsersService {
     @Autowired
     UsersRepository usersRepository;
+
     public List<User> getUsers() {
         return usersRepository.findAll();
     }
@@ -26,5 +27,27 @@ public class UsersService {
 
     public void deleteUser(Long id) {
         usersRepository.deleteById(id);
+    }
+
+    public boolean registerUser(User user) {
+        try {
+            usersRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean authenticateUser(User user) {
+        try {
+            User userFromDb = usersRepository.findByEmail(user.getEmail());
+            return userFromDb.getPassword().equals(user.getPassword());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public User findUserByEmail(String email) {
+        return usersRepository.findByEmail(email);
     }
 }
