@@ -49,7 +49,7 @@ public class TeamController {
     @PostMapping
     public ResponseEntity<Team> addTeam(@RequestBody Team team, @RequestParam("regattaId") Long regattaId) {
         team.setRegatta(regattaService.findRegattaById(regattaId));
-        team.setPoints(new ArrayList<Double>());
+        team.setPoints(0);
         Team newTeam = teamsService.createTeam(team);
         return new ResponseEntity<>(newTeam, HttpStatus.CREATED);
     }

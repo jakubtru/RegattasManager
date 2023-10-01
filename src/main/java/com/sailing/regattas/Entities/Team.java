@@ -29,9 +29,5 @@ public class Team {
     @CollectionTable(name = "crew_members", joinColumns = @JoinColumn(name = "team_id"))
     @Column(name = "crew_members")
     private List<String> crewMembers = new ArrayList<>();
-
-    @ElementCollection
-    @CollectionTable(name = "points", joinColumns = @JoinColumn(name = "team_id"))
-    @Column(name = "points")
-    private List<Double> points = new ArrayList<>();
+    private Integer points;
 }

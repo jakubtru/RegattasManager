@@ -15,6 +15,7 @@ public class LoginController {
     @Autowired
     UsersService usersService;
 
+    @Autowired
     public LoginController(UsersService usersService) {
         this.usersService = usersService;
     }

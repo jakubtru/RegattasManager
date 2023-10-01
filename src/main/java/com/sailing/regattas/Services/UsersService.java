@@ -17,7 +17,7 @@ public class UsersService {
         return usersRepository.findAll();
     }
 
-    public User findPlayerById(Long id) {
+    public User findUserById(Long id) {
         return usersRepository.findById(id).orElseThrow(() -> new UserNotFoundException("Player with id " + id + " was not found"));
     }
 
@@ -50,4 +50,5 @@ public class UsersService {
     public User findUserByEmail(String email) {
         return usersRepository.findByEmail(email);
     }
+
 }
