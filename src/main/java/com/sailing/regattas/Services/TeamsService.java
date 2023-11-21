@@ -31,7 +31,6 @@ public class TeamsService {
     }
 
     public Team createTeam(Team team) {
-        //team.setRegatta(regattasRepository.findRegattaById(team.getRegatta().getId()));
         return teamsRepository.save(team);
     }
 

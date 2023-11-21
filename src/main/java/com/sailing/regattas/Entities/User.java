@@ -12,7 +12,6 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@JsonIgnore // Exclude 'id' from JSON serialization
     private Long id;
     private String email;
     private String password;

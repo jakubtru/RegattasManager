@@ -54,7 +54,4 @@ public class UserController {
         User user = usersService.findUserByEmail(email);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    // Replace this method with your actual authentication logic
-
-
 }

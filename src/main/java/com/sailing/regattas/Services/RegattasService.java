@@ -43,3 +43,5 @@ public class RegattasService {
         return user.map(value -> regattasRepository.findRegattasByUser(value)).orElse(null);
     }
 }
+
+

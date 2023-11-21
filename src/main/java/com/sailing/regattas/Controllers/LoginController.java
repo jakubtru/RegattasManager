@@ -22,12 +22,9 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
-        // Implement your authentication logic here
         if (usersService.authenticateUser(user)) {
-            // Authentication successful
             return ResponseEntity.ok("Login successful");
         } else {
-            // Authentication failed
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed");
         }
     }

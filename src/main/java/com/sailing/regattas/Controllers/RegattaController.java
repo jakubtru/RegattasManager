@@ -62,6 +62,13 @@ public class RegattaController {
         return new ResponseEntity<>(updateRegatta, HttpStatus.OK);
     }
 
+    @PutMapping("/{userId}")
+    public ResponseEntity<Regatta> updateRegatta(@RequestBody Regatta regatta, @PathVariable("userId") Long userId) {
+        regatta.setUser(usersService.findUserById(userId));
+        Regatta updateRegatta = regattasService.createRegatta(regatta);
+        return new ResponseEntity<>(updateRegatta, HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRegatta(@PathVariable("id") Long id) {
         regattasService.deleteRegatta(id);
