@@ -48,8 +48,6 @@ public class TeamsService {
     }
 
     public Team updateTeam(Team team) {
-
-        //team.setRegatta(regattasRepository.findRegattaById(team.getRegatta().getId()));
         return teamsRepository.save(team);
     }
 }
